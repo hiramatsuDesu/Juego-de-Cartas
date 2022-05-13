@@ -1,0 +1,121 @@
+:root{
+    --w: calc(60vw/4);
+    --h: calc(120vh/4);
+}
+
+*{
+    transition: all 3s;
+}
+
+.jumbotron{
+    background-image: url("estilos/fondo.png");
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+header{
+    width: 70%;
+    padding: 10px;
+    background-image: url("estilos/titulo.jpg");
+    background-repeat: no-repeat;
+    background-size: fixed;
+    background-position: center;
+    opacity: 0.8;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#tablero{
+  
+    width: 95%;
+    height: 20%;
+    margin: auto;
+    padding: 10px;
+}
+
+.contenedor{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    background-image: url("estilos/contenedor.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body
+{
+    -webkit-perspective: 1000;
+    font-family: 'Montserrat', sans-serif;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #fcf5f5;
+}
+
+div{
+    display: inline-block;
+}
+
+.area-tarjeta,
+.tarjeta,
+.cara{
+    cursor: pointer;
+    width: var(--w);
+    height: var(--h);
+    min-width: 100px;
+}
+
+.tarjeta{
+    position: relative;
+    transform-style:preserve-3d ;
+    animation: iniciar 1s;
+}
+
+.cara{
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+}
+
+.trasera{
+  
+    transform: rotateY(180deg);
+}
+
+.superior{
+    border: 1px solid seagreen;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+    background-image: url("template/fondo.png");
+    background-position: center center;
+    background-size: contain;
+}
+
+.nuevo-juego{
+    cursor: pointer;
+    background-color: blanchedalmond;
+    padding: 10px;
+    border: wheat 5px solid;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+
