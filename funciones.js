@@ -1,5 +1,6 @@
 let imagenes = []
 let seleccion = []
+let count = 0;
 
 generarTablero()
 
@@ -22,6 +23,7 @@ function cargarImagenes(){
 }
 
 function generarTablero(){
+    count = 0;
     cargarImagenes()
     seleccion = []
     let tablero = document.getElementById("tablero");
@@ -45,6 +47,7 @@ function generarTablero(){
 }
 
 function seleccionar(i){
+    
     let tarjeta = document.getElementById("tarjeta"+i)
     if(tarjeta.style.transform != "rotateY(180deg)"){
         tarjeta.style.transform = "rotateY(180deg)"
@@ -54,9 +57,17 @@ function seleccionar(i){
         deseleccionar(seleccion)
         seleccion = [];
     }
+
+    
+        count = count + 1;
+        console.log(count);
+    
 }
 
 function deseleccionar(seleccion){
+
+    if(count <= 2)
+    {
 
     setTimeout(() => {
         let trasera1 = document.getElementById("trasera"+seleccion[0])
@@ -64,7 +75,7 @@ function deseleccionar(seleccion){
         let extraer = cadena.substr(-8)
         if(extraer == "gato.jpg"){
             trasera1.style.background = "red";
-            setTimeout(()=> {letrero()}, 4000)
+            setTimeout(()=> {letreroGana()}, 4000)
         }else{
             let tarjeta1 = document.getElementById("tarjeta" + seleccion[0])
             let tarjeta2 = document.getElementById("tarjeta" + seleccion[1])
@@ -72,9 +83,13 @@ function deseleccionar(seleccion){
             tarjeta2.style.transform = "rotateY(0deg)";
         }
     },2000)
+
+    }else{
+        letreroPierde();
+    }
 }
 
-function letrero(){
+function letreroGana(){
     let tablero = document.getElementById("tablero");
     let tarjetas = []
     tarjetas.push(`
@@ -86,7 +101,24 @@ function letrero(){
     </br>
     <div class="area-tarjeta">
             
-            <img src="template/gato.jpg" width="50%">
+            
+        </div>  
+        `)
+    tablero.innerHTML = tarjetas.join();
+}
+
+function letreroPierde(){
+    let tablero = document.getElementById("tablero");
+    let tarjetas = []
+    tarjetas.push(`
+    <img src="estilos/cancel.png" width="10%">
+    <h1>
+        Lo sentimos.... Superó los intentos...
+    </h1>
+    
+    </br>
+        <div class="area-tarjeta">
+            <h3>Vuelva a intentarlo</h3>
         </div>  
         `)
     tablero.innerHTML = tarjetas.join();
